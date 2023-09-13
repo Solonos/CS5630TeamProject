@@ -29,6 +29,5 @@ async def test_get_players():
 @pytest.mark.asyncio()
 async def test_get_players_from_leaderboard():
     chess_client = ChessDotComClient()
-    responses = await chess_client.get_players_from_leaderboards()
-    profiles = [response.json for response in responses]
+    profiles = await chess_client.get_players_from_leaderboards()
     (chess_path / "leaderboards.json").write_text(json.dumps(profiles, indent=2))
